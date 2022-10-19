@@ -6,7 +6,7 @@ const router = express.Router();
 // provide todo route implementation here
 
 router.get('/', (req, res) => {
-    res.send('Root endpoint of of TODO route')
+    res.send("Hello from todos")
 })
 
 export default router;

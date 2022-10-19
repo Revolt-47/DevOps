@@ -6,6 +6,10 @@
 //const express = require('express')
 import express from 'express'; // <-- Module Style import
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cust from './Model/Customer.js';
+import rooms from './Model/Rooms.js';
+import booking from './Model/Booking.js';
 
 // Importing user route
 import router from './routes/users.js';
@@ -15,6 +19,7 @@ import router from './routes/users.js';
 
 const app = express()
 const port = 3001
+mongoose.connect('mongodb://localhost:27017/myhotel')
 
 app.use(bodyParser.json())
 // Adding a Router
@@ -24,7 +29,7 @@ app.get('/', (req, res) => {
     res.send('Hello Universe!')
 })
 
-app.get('/todos', (req, res) => {
+app.get('/', (req, res) => {
     res.send('A list of todo items will be returned')
 })
 
@@ -36,3 +41,15 @@ app.post('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+const article = new cust({
+    Customer_id : "1",
+    Name : "Umer Iftikhar",
+    Phone : "032222222",
+    email : "theta@parhai.com",
+ 
+});
+ 
+
+const firstarticle = await cust.findOne ({});
+console.log(firstarticle);
