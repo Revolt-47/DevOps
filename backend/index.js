@@ -34,8 +34,7 @@ var CustSchema = mongoose.Schema({
     type : String,
     seats : Number,
     description : String,
-    price  : Number,
-    booked : Boolean,
+    price  : Number
   })
 
   var rooms = mongoose.model('rooms',RoomSchema);
@@ -43,8 +42,9 @@ var CustSchema = mongoose.Schema({
   var bookSchema = mongoose.Schema({
     room_no : Number,
     email : String,
-    checkin : String,
-    checkout : String
+    checkin : Date,
+    checkout : Date,
+    price : Number,
   })
 
   var bookings = mongoose.model('bookings',bookSchema)
@@ -111,9 +111,75 @@ app.get("/rooms",(req,res , next)=>{
         if(err) return console.error(err);
         console.log(rooms)
         res.json(rooms);
-    })
+    })  
 
 })
+
+app.post("/rooms",(req,res,next)=>{
+            const query = rooms.aggregate([
+                { $lookup :
+                    {
+                        from : 'bookings',
+                        localField : 'room_no',
+                        foreignField : 'room_no',
+                        as : 'books'
+                    }
+
+                }
+            ])
+
+            var x = [];
+            console.log('hi');
+            query.exec(function (err,rooms){
+                if(err) return console.error(err);
+                rooms.map(
+                    (element) => {
+                       //console.log(element)
+                       // x.push(element);
+                        if(element.books.length > 0){          
+                        element.books.map(
+                            (e) => {
+                                console.log(e.checkin)
+                             if(e.checkin >= req.body.checkin && e.checkout <= req.body.checkin){
+                                if(e.checkin >= req.body.checkout && e.checkin <= req.body.checkout){
+                                    x.push(element);
+                                    console.log(element);
+                                    r
+                                }
+                             }
+                            }
+                          )
+                        return}
+                        
+                            x.push(element);
+                           console.log(x);
+                           
+                          
+                        
+                        })
+                        res.json(x);
+                        
+                         
+                      
+                                  
+                             
+                                })
+                            
+
+                            
+                            })
+                    
+                
+                
+            
+         
+        
+        
+      
+
+
+
+
 
 
 app.post("/newbooking",(req,res,next)=>{
@@ -122,6 +188,19 @@ app.post("/newbooking",(req,res,next)=>{
         if (err){ 
             return console.error(err);}
         console.log(booking._id + " added to bookings.");
+        const query = rooms.updateOne({'room_no' : req.body.room_no},
+        {
+            $set : {
+                booked : true
+            }
+        });
+        query.exec(function (err,rooms){
+            if(err) return console.error(err);
+            console.log(rooms)
+            res.json(rooms);
+        })
+        
+        
       });
 
 })

@@ -3,12 +3,9 @@ import { useState } from "react"
 export default function Bookings({user}){
     
     const [books,setbooks] = useState([{}]);
-    var x =0;
-
-    if(x == 0){
+    
+        
         postData('http://localhost:3001/booking','data');
-        x=1;
-    }
     
     
 

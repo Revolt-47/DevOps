@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useNavigate } from "react-router-dom";
 
 export default function Form({room,user}){
 
-  const room_no = room;
+  const room_no = room.room;
   const active = user.email; 
   const [checkin,setcheckin] = useState("");
   const [checkout,setcheckout] = useState("");
@@ -31,8 +33,8 @@ url: 'http://localhost:3001/newbooking',
 data: {
    room_no : room_no,
    email : active,
-   checkin : checkin,
-   checkout : checkout,
+   checkin : room.date1,
+   checkout : room.date2,
 }
 });
 
@@ -41,12 +43,11 @@ data: {
 
 }
 function submit () {
-  if(room_no && active && checkin && checkout){
+  if(room_no && active ){
   postData();
   navigate('/dashboard')}
 }
     
-
     return(
     <div>
             <div className="heading">
@@ -62,18 +63,18 @@ function submit () {
                 <input type='text' placeholder={active} readOnly ></input> <br></br>
                 <div class="elem-group inlined">
     <label for="checkin-date">Check-in Date</label>
-    <input type="date" id="checkin-date" name="checkin" required onChange={setdate1}></input>
+    <input type="date" id="checkin-date" name="checkin" required value={room.date1} readOnly></input>
   </div>
   <div class="elem-group inlined">
     <label for="checkout-date">Check-out Date</label>
-    <input type="date" id="checkout-date" name="checkout" required onChange={setdate2}></input>
+    <input type="date" id="checkout-date" name="checkout" required value={room.date2} readOnly></input>
   </div>
   <div class="elem-group inlined">
              
             </div>
 
             <div>
-                <button onClick={submit}>Book</button>
+                <Button onClick={submit}>Book</Button>
             </div>
 
         </div>

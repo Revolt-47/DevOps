@@ -12,15 +12,15 @@ function App() {
 
   const [activeuser,setactiveuser] = useState({});
   const [room,setroom] = useState('');
-
+ 
   return (
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Login setactiveuser={setactiveuser}/>}/>
       <Route path = 'signup' element={<Signup/>}/>
       <Route path = 'dashboard' element={<Dashboard/>}/>
-      <Route path = 'rooms' element={<Room setroom = {setroom}/>}/>
-      <Route path = 'book' element={<Form room = {room} user = {activeuser}/>}/>
+      <Route path = 'room' element={<Room setroom = {setroom} />}/>
+      <Route path = 'book' element={<Form room = {room} user = {activeuser} />}/>
       <Route path = 'booked' element={<Bookings user = {activeuser}/>}/>
     </Routes>  
    </BrowserRouter>
