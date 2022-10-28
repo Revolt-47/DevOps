@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -42,20 +43,21 @@
 }
 
 .Auth-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-.Auth-form {
-  width: 420px;
+  width:100%;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.Auth-form {
+
 }
 
 .Auth-form-content {
@@ -75,4 +77,47 @@ label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+
+.dash {
+  text-align: center;
+}
+
+.rooms {
+  width: fit-content;
+  size: 30px;
+  
+}
+
+.heading h1 {
+
+ 
+  font-size: 70px;
+  font-weight: 500;
+  color: royalblue;
+  border-right: 4px solid #000;
+  
+  
+   
+
+}
+
+ 
+
+.heading span {
+
+  font-size: 20px;
+  font-weight: 200;
+  color: darkblue;
+  
+}
+
+.heading{
+  background-color: aquamarine;
+}
+
+div {
+  text-align: center;
+ 
+  
 }
