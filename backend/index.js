@@ -42,8 +42,8 @@ var CustSchema = mongoose.Schema({
   var bookSchema = mongoose.Schema({
     room_no : Number,
     email : String,
-    checkin : Date,
-    checkout : Date,
+    checkin : String,
+    checkout : String,
     price : Number,
   })
 
