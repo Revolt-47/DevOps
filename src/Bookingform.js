@@ -9,6 +9,8 @@ export default function Form({room,user}){
 
   const room_no = room.room;
   const active = user.email; 
+  const checkin;
+  const checkout;
   
 
   const navigate = useNavigate();
