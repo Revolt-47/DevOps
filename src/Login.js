@@ -43,7 +43,7 @@ export default function Login({setactiveuser}){
     //  data: {
      //   email : email,
        // password : password,
-      }
+    //  }
    // }).then(response =>{
       //callback(response.data.message);
       // res = response.data.message
