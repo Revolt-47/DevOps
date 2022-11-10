@@ -35,6 +35,7 @@ export default function Login({setactiveuser}){
   //   });
   // }
 
+<<<<<<< HEAD
    async function postData(url = '', data) {
   //   await axios({
   //     method: 'post',
@@ -56,6 +57,29 @@ export default function Login({setactiveuser}){
   //   .catch(err =>{
   //     console.log(err);
   //   });
+=======
+  async function postData(url = '', data) {
+   // await axios({
+   //   method: 'post',
+      
+   //   url: 'http://localhost:3001/customers',
+    //  data: {
+     //   email : email,
+       // password : password,
+    //  }
+   // }).then(response =>{
+      //callback(response.data.message);
+      // res = response.data.message
+      // var res =  response.data;
+    //  console.log(response.data)
+     // setLoginRes(response.data)
+     // setactiveuser(loginRes)
+      // console.log(`Login Response: ${response.body.name}`);
+    //})//.then(res => console.log(res.json()))
+    //.catch(err =>{
+     // console.log(err);
+    //});
+>>>>>>> 806dd7a38217c1e71c376753ac874a621d65ada7
   }
 
   
