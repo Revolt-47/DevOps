@@ -5,30 +5,30 @@ import axios from "axios";
 
 export default function Signup(){
 
-  async function postData(url = '', data) {
+   async function postData(url = '', data) {
   
 
-      // Default options are marked with *
-  axios({
-    method: 'post',
+  //     // Default options are marked with *
+  // axios({
+  //   method: 'post',
     
-    url: 'http://localhost:3001/createcustomer',
-    data: {
-      name : name,
-      email : email,
-       password : password,
-       phone : phone,
-    }
-    });
+  //   url: 'http://localhost:3001/createcustomer',
+  //   data: {
+  //     name : name,
+  //     email : email,
+  //      password : password,
+  //      phone : phone,
+  //   }
+  //   });
 
     
 
-    axios.get('http://localhost:3001/createcustomer').then((response) => {
-      // setbackend(response.data);
-       console.log(response.data);
-       seterror(response.data);
-      // console.log(typeof(response.data));
-      })
+  //   axios.get('http://localhost:3001/createcustomer').then((response) => {
+  //     // setbackend(response.data);
+  //      console.log(response.data);
+  //      seterror(response.data);
+  //     // console.log(typeof(response.data));
+  //     })
        
   }
   
