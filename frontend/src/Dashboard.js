@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 export default function Dashboard(props){
 
     const navigate = useNavigate();
 
     function viewrooms(){
-        navigate('/room');
+        navigate('/rooms ');
     }
 
     function viewbookings(){
@@ -23,8 +22,8 @@ export default function Dashboard(props){
             </div>
             <div className="options">
             <ul>
-                <Button onClick={viewrooms}>View Rooms</Button>
-                <Button onClick={viewbookings}>View Bookings</Button>
+                <button onClick={viewrooms}>View Rooms</button><br></br>
+                <button onClick={viewbookings}>View Bookings</button>
             </ul>
             </div>
         </div>
